@@ -41,9 +41,9 @@ body, html {
     letter-spacing: 10px;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 620px) {
     .caption span.border{
-      letter-spacing:  2px !important;
+      letter-spacing:  -1px !important;
     }
   }
   
