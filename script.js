@@ -1,26 +1,46 @@
 $(document).ready(function(){
     // Add smooth scrolling to all links
     $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
-        // Prevent default anchor click behavior
         event.preventDefault();
   
         // Store hash
         var hash = this.hash;
   
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
           scrollTop: $(hash).offset().top
         }, 800, function(){
-  
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
         });
-      } // End if
+      } 
     });
   });
+
+  $(".seccion-central .contenedor, .dropdown-item").click(function(e){
+    var id = $(this).attr('redir');
+    if(id){
+      window.location.href = "/servicios.html#"+id;
+    }
+  });
+
+  $(window).on("load", function() {
+    $("#body").fadeIn(800);
+});
+
+function isMobile() {
+  try{ document.createEvent("TouchEvent"); return true; }
+  catch(e){ return false; }
+}
+
+$("#contactenos").click(function(){
+  if(isMobile()){
+    window.open("https://api.whatsapp.com/send?phone=5491122548737&amp;text=Hola,%20Tengo%20una%20consulta,");
+  }
+  else{
+    window.open("mailto:estudioespinosafrick@gmail.com?subject=Consulta&nbsp;via&nbsp;mail");
+  }
+});
 
 
   

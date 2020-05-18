@@ -1,7 +1,8 @@
-body, html {
+#body, body, html {
     height: 100%;
     margin: 0;
     font: 400 15px/1.8 "Lato", sans-serif;
+    font-family: 'Overpass', sans-serif;
     color: #777;
   }
 
@@ -10,8 +11,8 @@ body, html {
     background-repeat: repeat;
   }
   #mainLogo{
-      width: 100px;
-      height: 100px;
+      width: 180px;
+      height: 90px;
   }
 
   .bg {
@@ -23,6 +24,10 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   }
+
+  a{
+    cursor:pointer !important;
+  }
   
   .caption {
     left: 0;
@@ -31,6 +36,9 @@ body, html {
     width: 100%;
     text-align: center;
     color: #000;
+  }
+  .dropdown-item{
+    cursor:pointer;
   }
   
   .caption span.border {
@@ -46,18 +54,22 @@ body, html {
       letter-spacing:  -1px !important;
     }
   }
-  
+/*   
   h3 {
     letter-spacing: 5px;
     text-transform: uppercase;
     font: 20px "Lato", sans-serif;
     color: #111;
-  }
+  } */
 
   /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
- section {
+ #footer {
     padding: 60px 0;
+}
+
+section{
+  padding:20px
 }
 
  section .section-title {
@@ -187,8 +199,9 @@ body, html {
   
 
   #main{
-    width: 70%; margin:auto;
+    width: 85%; margin:auto;
   }
+
 .nav-item{
     display:inline;
     border: 0;
@@ -196,8 +209,29 @@ body, html {
   margin: 0;
 }
 
-.seccion-central:not(:last-child){
-  border-bottom: 1px solid #ccc;
+.seccion-central{
+  margin-bottom: 40px;
+}
+.seccion-central .contenedor{
   padding-top:15px;
-  padding-bottom:15px;
+  box-shadow:0px 0px 13px 0px rgba(0,0,0,0.3);
+  background-color: white;
+  margin-bottom: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin: auto;
+  max-width: 350px;
+  padding-bottom:25px;
+  cursor: pointer;
+}
+
+.seccion-central img{
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: auto;
+}
+.news img{
+  width: 500px;
+  height: 500px;
 }

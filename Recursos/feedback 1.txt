@@ -1,0 +1,6 @@
+Agregar form de contacto
+Ver video de fondo de buenos aires
+Agregar una imagen por cada servicio
+Sacar LI de servicios
+
+En home, grilla de servicios con imagen, sin detalle. Cada link redirecciona a /servicios, con hashtag

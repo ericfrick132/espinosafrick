@@ -1,0 +1,211 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Espinosa Frick Estudio Contable</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="img/logo.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="body" style="display: none;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="/index.html" class="navbar-brand" href="#"><img src="img/logo_2.jpeg" id="mainLogo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Servicios
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" redir="servicioscontables">Servicios Contables</a>
+              <a class="dropdown-item" redir="serviciosimpositivos">Servicios Impositivos</a>
+              <a class="dropdown-item" redir="sociedades">Sociedades</a>
+              <a class="dropdown-item" redir="servicioslaborales">Servicios Laborales</a>
+              <a class="dropdown-item" redir="otrosservicios">Otros Servicios</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/novedades.html">Novedades</a>
+          </li>
+          <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Clientes</a>
+        </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contactenos">Contactenos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- <iframe width="100%" class="bg" src="https://www.youtube.com/embed/4ZBj7ufoePM?start=132&autoplay=1&controls=0"></iframe>  -->
+
+    <div class="bg">
+    </div>
+    <div class="caption">
+      <span class="border">ESTUDIO ESPINOSA FRICK</span><br>
+    </div>
+    <section id="main">
+     <?php
+    $prod = true;
+      if($prod){
+    $servername = "localhost";
+    $username = "c1810199_NEWS"; 
+    $password = "niGAda95bu";
+    $dbname = "c1810199_NEWS";
+      }
+      else{
+        $servername = "localhost";
+        $username = "c1810199_NEWS"; 
+        $password = "niGAda95bu";
+        $dbname = "c1810199_NEWS";
+      }
+
+     // Create connection
+     $conn = mysqli_connect($servername, $username, $password, $dbname);
+     // Check connection
+     if ($conn->connect_error) {
+       die("Connection failed: " . $conn->connect_error);
+     }
+     
+      $sql = "SELECT * FROM News order by CreatedDate desc;";
+     
+      $result = mysqli_query($conn, $sql);
+   
+      $rowNum = (int)mysqli_num_rows($result);
+     
+       if ($rowNum > 0) {
+        echo "<div class='postContainer'>";
+         while($row = $result->fetch_assoc()) {
+           echo "<div class='news row'>";
+           echo "<div class='title'>".$row["Title"]."</div><br />";
+           echo "<div class='body col-xl-6 col-lg-6 col-md-6'>".$row["Body"]."</div>";
+           echo '<img class="col-xl-6 col-lg-6 col-md-6" src="data:image/jpeg;base64,'.base64_encode( $row['Image'] ).'"/>';
+           echo "</div>";
+         }
+         echo "</div>";
+      }
+       mysqli_close($conn);
+    
+      ?> 
+
+
+      <div style="margin: 40px; padding-bottom: 20px;padding-top: 20px; word-break: break-word;border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;" class="row">
+          <div class="col-md-6 col-sm-12">
+            Somos un estudio contable impositivo, hacemos asesoramiento online. Estudio Espinosa frick, te brinda asesoramiento profesional personalizado para pequeñas y medianas empresas como también para todas
+             las personas físicas que estén por comenzar su actividad económica independiente. Nuestra misión es brindarles nuestros servicios cumpliendo los compromisos estrictamente con
+              calidad y dedicación. Así nuestros clientes puedan tomar las mejores decisiones para su negocio.
+          </div>
+          <div class="col-md-6 col-sm-12">
+            Nuestra asesoría se basa en la confiabilidad y en la capacitación profesional constante, atributos que nos permiten responder con eficiencia a las necesidades 
+            de cada persona o entidad, ya sea en los campos contable, impositivo, laboral, societario e informático y toda otra actividad relacionada con la gestión de organizaciones.
+             Los constantes avances tecnológicos nos han impulsado a introducirnos en el asesoramiento e implementación de sistemas de información y gestión empresarial, así como desarrollos
+              E-Business y de marketing digital.
+          </div>
+        </div>
+
+      <p style="text-align: center;" id="logos_utiles"><a href="https://afip.gob.ar"><img src="img/logos/AFIP.png"
+            width="100" height="60"></a>
+        <a href="https://anses.gob.ar"><img src="/img/logos/ANSES.jpg" width="100" height="60"></a>&nbsp;
+        <a href="https://www.arba.gov.ar"><img src="/img/logos/ARBA.png" width="91" height="50"></a>&nbsp;
+        <a href="https://buenosaires.gob.ar" target="_blank" rel="noopener noreferrer"><img src="/img/logos/CABA.png"
+            style="width:100px; height:100px" /></a>&nbsp;
+        <a href="https://www.consejo.org.ar/" target="_blank" rel="noopener noreferrer"><img src="img/logos/consejo.jpg"
+            alt=""></a>&nbsp;
+        <a href="https://www.agip.gob.ar" target="_blank" rel="noopener noreferrer"> <img src="/img/logos/AGIP.jpg"
+            width="89" height="59"></a>&nbsp;
+        <a href="https://www.argentina.gob.ar/trabajo" target="_blank" rel="noopener noreferrer"><img
+            src="/img/logos/MINISTERIO.png" width="117" height="66"></a>&nbsp;
+        <a href="https://www.bcra.gov.ar/" target="_blank" rel="noopener noreferrer"><img src="/img/logos/BCRA.png"
+            style="width:60px; height:60px"></a>&nbsp;
+        <a href="https://www.argentina.gob.ar/justicia/igj"><img src="/img/logos/IGJ.png" alt=""
+            style="width:100px; height:40px"></a></p>
+    </section>
+    <a href="https://api.whatsapp.com/send?phone=5491122548737&amp;text=Hola,%20Tengo%20una%20consulta,"
+      class="float pulse-button" target="_blank">
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <section id="footer">
+      <div class="contenedor">
+        <div class="row text-center text-xs-center">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <h5>Servicios</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="http://www.estudioespinosafrick.com.ar/"><i class="fa fa-angle-double-right"></i>Home</a>
+              </li>
+              <li><a href="http://www.estudioespinosafrick.com.ar/#servicioscontables"><i
+                    class="fa fa-angle-double-right"></i>Servicios Contables</a></li>
+              <li><a href="http://www.estudioespinosafrick.com.ar/#serviciosimpositivos"><i
+                    class="fa fa-angle-double-right"></i>Servicios Impositivos</a></li>
+              <li><a href="http://www.estudioespinosafrick.com.ar/#servicioslaborales"><i
+                    class="fa fa-angle-double-right"></i>Servicios Laborales</a>
+              </li>
+              <li><a href="/novedades"><i
+                    class="fa fa-angle-double-right"></i>Novedades</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <h5>Links Utiles</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>AFIP</a></li>
+              <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>ARBA</a></li>
+              <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>CABA</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/estudioespinosafrick/?hl=es-la"
+                  target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a
+                  href="https://api.whatsapp.com/send?phone=5491122548737&amp;text=Hola,%20Tengo%20una%20consulta,"><i
+                    class="fa fa-whatsapp"></i></a></li>
+              <li class="list-inline-item"><a href="mailto:estudioespinosafrick@gmail.com?subject=Consulta via mail"
+                  target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+          </div>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white"><b>(+54)1122548737 -
+              estudioespinosafrick@gmail.com</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p> <u><a href="http://www.estudioespinosafrick.com.ar/">Estudio Espinosa Frick</a></u> es una marca
+              registrada en la ciudad de buenos aires</p>
+            <p class="h6">© Todos los derechos reservados. 2020</p>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</html>
